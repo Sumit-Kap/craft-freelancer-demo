@@ -24,7 +24,10 @@ const Header: FC = () => {
           <div className="flex items-center lg:order-2">
             <img
               className="w-10 h-10 rounded-full"
-              src={data?.user?.image}
+              src={
+                data?.user?.image ||
+                "https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              }
               alt="Rounded avatar"
             />
             <a

@@ -3,6 +3,9 @@ interface AppContextInterface {
   role: string;
   setAppRole: (role: string) => void;
 }
-const AppContext = createContext<AppContextInterface>(undefined);
+const AppContext = createContext<AppContextInterface>({
+  role: "",
+  setAppRole: () => {},
+});
 
 export default AppContext;
