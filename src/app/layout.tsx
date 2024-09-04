@@ -14,8 +14,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("In here", process.env);
   return (
     <html lang="en">
+      <head>
+        <title>Craft Demo</title>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
