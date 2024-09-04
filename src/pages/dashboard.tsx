@@ -2,7 +2,6 @@ import React, { FC, useContext, useEffect } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "../../node_modules/next/router";
 import AppContext from "../components/AppContext";
-import Header from "../components/Header";
 
 const Dashboard: FC = () => {
   const { data, status } = useSession();
