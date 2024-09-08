@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import AppContext from "./AppContext";
 import { useRouter } from "../../node_modules/next/router";
@@ -7,11 +7,14 @@ const Header: FC = () => {
   const { data, status } = useSession();
   const { role } = useContext(AppContext);
   const router = useRouter();
+  if (status !== "authenticated") {
+    return null;
+  }
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a href="https://flowbite.com" className="flex items-center">
+          <a href="javascript:void(0)" className="flex items-center">
             <img
               src="https://logos-world.net/wp-content/uploads/2023/12/Intuit-Logo.png"
               className="mr-3 h-6 sm:h-9"
@@ -30,12 +33,17 @@ const Header: FC = () => {
               }
               alt="Rounded avatar"
             />
-            <a
-              href="javascript:void(0)"
-              className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-            >
-              {status === "authenticated" ? "Log out" : "Log in"}
-            </a>
+            {status === "authenticated" && (
+              <a
+                href="javascript:void(0)"
+                className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                onClick={() => {
+                  signOut();
+                }}
+              >
+                Log out
+              </a>
+            )}
 
             <button
               data-collapse-toggle="mobile-menu-2"
