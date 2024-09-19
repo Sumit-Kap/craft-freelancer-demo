@@ -41,11 +41,11 @@ const Profile: FC = () => {
       <div className="p-4">
         <h1 className="text-2xl font-bold mb-6">Freelancer Profile</h1>
         <SavedProfile
-          bio={userData?.bio}
-          imageUrl={data?.user?.image}
-          name={data?.user?.name}
-          gitHubProfile={userData?.githubProfile}
-          skills={userData?.skills}
+          bio={userData?.bio as string}
+          imageUrl={data?.user?.image as string}
+          name={data?.user?.name as string}
+          gitHubProfile={userData?.githubProfile as string}
+          skills={userData?.skills as string[]}
         />
       </div>
     );
