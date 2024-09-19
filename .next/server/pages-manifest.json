@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
+  "/dashboard": "pages/dashboard.js",
+  "/freelancer/profile": "pages/freelancer/profile.js",
+  "/employer/active-jobs": "pages/employer/active-jobs.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }
