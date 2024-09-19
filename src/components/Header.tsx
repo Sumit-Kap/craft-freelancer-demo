@@ -7,9 +7,17 @@ const Header: FC = () => {
   const { data, status } = useSession();
   const { role } = useContext(AppContext);
   const router = useRouter();
+
+  useEffect(() => {
+    if (status !== "authenticated") {
+      router.push("/");
+    }
+  }, [status]);
+
   if (status !== "authenticated") {
     return null;
   }
+
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">

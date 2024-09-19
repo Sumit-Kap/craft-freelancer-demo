@@ -1,14 +1,17 @@
-import React, { FC, useContext, useEffect } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "../../node_modules/next/router";
+import React, { FC, useContext } from "react";
 import AppContext from "../components/AppContext";
 
 const Dashboard: FC = () => {
-  const { data, status } = useSession();
   const { role, setAppRole } = useContext(AppContext);
-  console.log("role", role, setAppRole);
-  const router = useRouter();
-  console.log("Test", data, status);
+  const handleFreelancer = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setAppRole("Freelancer");
+  };
+
+  const handleEmployer = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setAppRole("Employer");
+  };
 
   return (
     <>
@@ -17,20 +20,13 @@ const Dashboard: FC = () => {
         <div className="flex gap-4">
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={async (e) => {
-              e.preventDefault();
-              setAppRole("Freelancer");
-              // router.push("/freelancer/jobs");
-            }}
+            onClick={handleEmployer}
           >
             Freelancer
           </button>
           <button
             className="px-4 py-2 bg-green-500 text-white rounded"
-            onClick={async (e) => {
-              e.preventDefault();
-              setAppRole("Employer");
-            }}
+            onClick={handleFreelancer}
           >
             Employer
           </button>

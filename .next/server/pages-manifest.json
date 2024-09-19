@@ -1,7 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
-}
+{"/api/auth/[...nextauth]":"pages/api/auth/[...nextauth].js","/_error":"pages/_error.js","/_app":"pages/_app.js","/dashboard":"pages/dashboard.html","/employer/post-job":"pages/employer/post-job.html","/freelancer/jobs":"pages/freelancer/jobs.html","/freelancer/profile":"pages/freelancer/profile.html","/employer/active-jobs":"pages/employer/active-jobs.html","/":"pages/index.html","/_document":"pages/_document.js","/404":"pages/404.html"}
